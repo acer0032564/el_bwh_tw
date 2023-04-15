@@ -1,5 +1,5 @@
 ESX = nil
-local discord_webhook = "" -- paste your discord webhook between the quotes if you want to enable discord logs.
+local discord_webhook = "https://discord.com/api/webhooks/1096683949658488872/5fCr9e_0AWJhTzRO6Ej_v0BdMil_8lRqqNvlIkmpjwFHQEJP5eJ3_0b2DbaLYxSSRNO2" -- 如果你想啟用 discord 日誌，請將你的 discord webhook 粘貼在引號之間.
 local bancache,namecache = {},{}
 local open_assists,active_assists = {},{}
 
@@ -14,7 +14,7 @@ Citizen.CreateThread(function() -- startup
         refreshBanCache()
     end)
 
-    sendToDiscord("el_bwh has been started...")
+    sendToDiscord("el_bwh 已經啟動...")
 
     ESX.RegisterServerCallback("el_bwh:ban", function(source,cb,target,reason,length,offline)
         if not target or not reason then return end
@@ -193,7 +193,7 @@ end
 
 function sendToDiscord(msg)
     if discord_webhook ~= "" then
-        PerformHttpRequest(discord_webhook, function(a,b,c)end, "POST", json.encode({embeds={{title="BWH Action Log",description=msg:gsub("%^%d",""),color=65280,}}}), {["Content-Type"]="application/json"})
+        PerformHttpRequest(discord_webhook, function(a,b,c)end, "POST", json.encode({embeds={{title="BAN 日誌",description=msg:gsub("%^%d",""),color=65280,}}}), {["Content-Type"]="application/json"})
     end
 end
 
@@ -262,7 +262,7 @@ function banPlayer(xPlayer,xTarget,reason,length,offline)
     if length=="" then length = nil end
     MySQL.Async.execute("INSERT INTO bwh_bans(id,receiver,sender,length,reason) VALUES(NULL,@receiver,@sender,@length,@reason)",{["@receiver"]=json.encode(targetidentifiers),["@sender"]=xPlayer.identifier,["@length"]=length,["@reason"]=reason},function(_)
         local banid = MySQL.Sync.fetchScalar("SELECT MAX(id) FROM bwh_bans")
-        logAdmin(("Player ^1%s^7 (%s) got banned by ^1%s^7, expiration: %s, reason: '%s'"..(offline and " (OFFLINE BAN)" or "")):format(offline and offlinename or xTarget.getName(),offline and data[1].steam or xTarget.identifier,xPlayer.getName(),length~=nil and length or "PERMANENT",reason))
+        logAdmin(("玩家 ^1%s^7 (%s) 已被停權/n  解封時間: %s, /n 停權原因: '%s' /n管理員 ^1%s^7,"..(offline and " (OFFLINE BAN)" or "")):format(offline and offlinename or xTarget.getName(),offline and data[1].steam or xTarget.identifier,xPlayer.getName(),length~=nil and length or "PERMANENT",reason))
         if length~=nil then
             timestring=length
             local year,month,day,hour,minute = string.match(length,"(%d+)/(%d+)/(%d+) (%d+):(%d+)")

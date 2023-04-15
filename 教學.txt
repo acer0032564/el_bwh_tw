@@ -1,0 +1,13 @@
+DC:阿豪#2429-代替漢化 
+/bwh <- 根管理員命令，這將顯示所有子命令
+/bwh ban <- 打開禁止菜單
+/bwh warn <- 打開警告菜單
+/bwh banlist <- 打開禁止列表
+/bwh warnlist <- 打開警告列表
+/bwh assists <- 在聊天中顯示未決/活躍的助攻
+/bwh refresh <- 從數據庫中提取所有禁令並刷新禁令緩存
+/accassist <player id><- 管理員命令，管理員可以接受玩家的幫助請求
+/finassist <- admin 命令，這將關閉當前的幫助請求並將你傳送回原來的位置
+/decassist <- admin 命令，這只是隱藏屏幕上的當前輔助彈出窗口
+/assist <reason><- 玩家命令，玩家可以請求幫助
+/cassist <- 玩家命令，這會取消玩家正在進行的協助請求
