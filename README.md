@@ -1,5 +1,7 @@
+#將自料夾改名 el_bwh
+#start el_bwh
 # el_bwh
-FiveM Ban/Warning/Help-Assist System for ESX
+ESX 的 FiveM 禁止/警告/幫助輔助系統
 
 ## Installation
 1. Download the [resource](https://github.com/Elipse458/el_bwh/archive/master.zip)
@@ -9,20 +11,20 @@ FiveM Ban/Warning/Help-Assist System for ESX
 5. Add `start el_bwh` to your server.cfg ***Make sure to add this after mysql-async and es_extended***
 6. Start it and you're good to go
 
-## Documentation
-There's a few commands this adds:
-- /bwh             <- root admin command, this will display all sub-commands
-- /bwh ban         <- opens the ban menu
-- /bwh warn        <- opens the warn menu
-- /bwh banlist     <- opens the ban list
-- /bwh warnlist    <- opens the warning list
-- /bwh assists     <- shows pending/active assists in the chat
-- /bwh refresh     <- pulls all bans from the database and refreshes the ban cache
-- /accassist `<player id>` <- admin command, admins can accept help requests from players
-- /finassist       <- admin command, this closes the current help request and teleports you back to your original position
-- /decassist       <- admin command, this just hides the current assist popup on the screen
-- /assist `<reason>` <- player command, players can request help with this
-- /cassist         <- player command, this cancels the players ongoing assist request  
+## 文檔
+這增加了一些命令：
+- /bwh <- root admin 命令，這將顯示所有子命令
+- /bwh ban <- 打開禁止菜單
+- /bwh warn <- 打開警告菜單
+- /bwh banlist <- 打開禁令列表
+- /bwh warnlist <- 打開警告列表
+- /bwh assists <- 在聊天中顯示未決/活躍的助攻
+- /bwh refresh <- 從數據庫中提取所有禁令並刷新禁令緩存
+- /accassist `<player id>` <- 管理員命令，管理員可以接受玩家的幫助請求
+- /finassist <- admin 命令，這將關閉當前的幫助請求並將您傳送回您的原始位置
+- /decassist <- admin 命令，這只是隱藏屏幕上的當前輔助彈出窗口
+- /assist `<reason>` <- 玩家命令，玩家可以請求幫助
+- /cassist <- 玩家命令，這會取消玩家正在進行的協助請求
 
 External banning/warning:
 **!! THESE ARE SERVER ONLY EVENTS !!**
